@@ -58,6 +58,7 @@ get all products                    | GET         | /api/product              | 
 get single product                  | GET         | /api/product/{product_id} |                                       |  
 get metrics                         | GET         | /api/metrics              |                                       |  
 get single metric value             | POST        | /api/metrics              | ```{"name": "...", "params": {...}``` |   
+register a client to the web socket api allowing it to recive new events whenevert they happen in real time (So the UI could update accordingly)             | websocket   | /ws                       |                                       |   
 
 
 ## Project Structure
