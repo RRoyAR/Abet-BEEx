@@ -47,6 +47,12 @@ class UsersTable(DBManager):
 
         return result
 
+    def get_single_user(self, user_id):
+        with self._session_maker() as session:
+            user = session.query(UserModel).filter_by(id=user_id).first()
+
+        return user
+
     def update_mail(self, user_id, new_mail) -> None:
         """
         Update a user's email
