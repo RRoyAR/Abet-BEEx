@@ -1,6 +1,4 @@
-import random
 import json
-from time import time
 from redis import Redis
 
 from Backend.src.settings import settings

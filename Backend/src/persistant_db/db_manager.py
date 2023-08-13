@@ -122,6 +122,12 @@ class ProductsTable(DBManager):
 
         return result
 
+    def get_single_product(self, product_id):
+        with self._session_maker() as session:
+            product = session.query(ProductModel).filter_by(id=product_id).first()
+
+        return product
+
     def update_price(self, product_id, new_price) -> None:
         """
         Update a product's price

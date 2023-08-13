@@ -3,7 +3,7 @@ from fastapi.exception_handlers import http_exception_handler
 from fastapi.staticfiles import StaticFiles
 from starlette.exceptions import HTTPException
 
-from Backend.src.routes import users
+from Backend.src.routes import users, product, metrics
 
 app = FastAPI(title="AlfaBet BE Exercise", version="1.0.0")
 
@@ -14,5 +14,7 @@ async def exception_handler(request, exception):
     return await http_exception_handler(request, exception)
 
 app.include_router(users.router, prefix="/api")
+app.include_router(product.router, prefix="/api")
+app.include_router(metrics.router, prefix="/api")
 # app.include_router(database_main_route.router, prefix="/api/v1")
 

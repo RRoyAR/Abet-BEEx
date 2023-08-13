@@ -38,7 +38,7 @@ def all_users_activities():
     return users_activities
 
 
-def products_popularity():
+def products_popularity(top_k=3):
     """
     Get the popularity of the products available.
     A product that no user ever interacted with will not be presented in the returned object
@@ -57,7 +57,17 @@ def products_popularity():
             for activity in activities[user][product]:
                 products_counter[product] += activities[user][product][activity]
 
-    return products_counter
+    # Sort descending
+    products_counter = dict(sorted(products_counter.items(), key=lambda item: item[1], reverse=True))
+    final_products = {}
+    counter = 0
+    for key in products_counter:
+        final_products[key] = products_counter[key]
+        counter += 1
+        if counter == top_k:
+            break
+
+    return final_products
 
 
 def event_frequencies():
