@@ -37,14 +37,3 @@ class RedisManager(metaclass=SingletonMeta):
 
 
 redis_manager = RedisManager()
-
-if __name__ == "__main__":
-    # Example
-    # redis_manager.save_event_to_redis("test", {"user": 1, "product": "productA", "action": "view"})
-    # print(redis_manager.read_json_data_from_redis("test"))
-    # redis_manager.save_event_to_redis(1, {"user": 1, "product": "productA", "action": "view"})
-    # res = redis_manager.read_json_data_from_redis(1)
-    # print(res)
-
-    for current_key in redis_manager.get_all_keys():
-        print(redis_manager.read_json_data_from_redis(current_key))
