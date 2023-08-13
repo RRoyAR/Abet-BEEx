@@ -1,7 +1,8 @@
-from fastapi import APIRouter, status, HTTPException, Request
+from fastapi import APIRouter, status, HTTPException, WebSocket, WebSocketDisconnect
 from pydantic import BaseModel
 
 from Backend.src.analytics_manager.user_engagement import user_activities, products_popularity, event_frequencies
+from Backend.src.routes.connected_sessions_manager import ConnectionManager
 
 router = APIRouter(prefix="/metrics")
 
@@ -40,3 +41,16 @@ def get_metric(model: MetricModel):
             return products_popularity(model.params["top_k"])
         case "event_frequencies":
             return event_frequencies()
+
+
+@router.websocket("/ws")
+async def activity_change(websocket: WebSocket):
+    manager = ConnectionManager()
+    await manager.connect(websocket)
+    try:
+        while True:
+            event = await websocket.receive_json()
+            await manager.broadcast(event)
+    except WebSocketDisconnect:
+        manager.disconnect(websocket)
+
