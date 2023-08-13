@@ -33,8 +33,8 @@ def simulate_user_interactions(user_id: int):
     :param user_id: The user id to simulate actions for
     :return: None
     '''
-    product_options = ["productA", "productB", "productC"]
-    action_options = ["view", "buy"]
+    product_options = ["productA", "productB", "productC", "productD", "productE"]
+    action_options = ["view", "buy", "comment", "like", "dislike"]
 
     # Randomly pick an item and an action as simulation for interactions
     # Randomly pick a number from 1 to 10 as the amount of actions to simulate
