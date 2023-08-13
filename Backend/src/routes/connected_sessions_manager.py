@@ -3,7 +3,12 @@ from fastapi import WebSocket
 from Backend.src.utils.singletone_meta import SingletonMeta
 
 
-class ConnectionManager(metaclass=SingletonMeta):
+class SocketConnectionManager(metaclass=SingletonMeta):
+    """
+    Class allowing implementation of the Observer pattern.
+    For any new socket, we'll append our listeners.
+    When any event coming through we can broadcast it to all of our listeners (observers)
+    """
     def __init__(self):
         self.active_connections: list[WebSocket] = []
 

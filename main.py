@@ -3,7 +3,7 @@ from fastapi.exception_handlers import http_exception_handler
 from fastapi.staticfiles import StaticFiles
 from starlette.exceptions import HTTPException
 
-from Backend.src.routes import users, product, metrics
+from Backend.src.routes import users, products, metrics
 
 app = FastAPI(title="AlfaBet BE Exercise", version="1.0.0")
 

@@ -20,7 +20,7 @@ def mock_consumer_action():
 
         # For each action send it to Kafka
         for action in actions:
-            redis_manager.save_event_to_redis(key=action["user"], data=action)
+            redis_manager.save_event_to_redis(user_id=action["user"], data=action)
 
 
 if __name__ == "__main__":

@@ -2,7 +2,7 @@ from fastapi import APIRouter, status, HTTPException, WebSocket, WebSocketDiscon
 from pydantic import BaseModel
 
 from Backend.src.analytics_manager.user_engagement import user_activities, products_popularity, event_frequencies
-from Backend.src.routes.connected_sessions_manager import ConnectionManager
+from Backend.src.routes.connected_sessions_manager import SocketConnectionManager
 
 router = APIRouter(prefix="/metrics")
 
@@ -20,11 +20,20 @@ class MetricModel(BaseModel):
 
 @router.get("")
 def get_available_metrics():
+    """
+    Get a list for all the available metrics you can run
+    :return: list of metrics names
+    """
     return available_metrics
 
 
 @router.post("")
 def get_metric(model: MetricModel):
+    """
+    Run metric calculation
+    :param model: Metric model
+    :return:
+    """
     if model.name not in available_metrics:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND)
 
@@ -45,7 +54,12 @@ def get_metric(model: MetricModel):
 
 @router.websocket("/ws")
 async def activity_change(websocket: WebSocket):
-    manager = ConnectionManager()
+    """
+    WebSocket for registering new sockets listening to events
+    :param websocket:
+    :return:
+    """
+    manager = SocketConnectionManager()
     await manager.connect(websocket)
     try:
         while True:

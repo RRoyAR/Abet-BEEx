@@ -20,11 +20,15 @@ class ConsumerManager(metaclass=SingletonMeta):
         self.topic = topic
 
     def start_listening(self):
+        """
+        Start active listening to new events coming through Kafka
+        :return:
+        """
         self.consumer.subscribe(self.topic)
 
         try:
             for message in self.consumer:
-                redis_manager.save_event_to_redis(key=message.user, data=message)
+                redis_manager.save_event_to_redis(user_id=message.user, data=message)
                 print("received message = ", message)
         except KeyboardInterrupt:
             print("Aborted by user...")

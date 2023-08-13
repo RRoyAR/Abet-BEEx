@@ -77,7 +77,7 @@ register a client to the web socket api allowing it to recive new events wheneve
 ```
 
 ### Producer
-This folder ```Producer/src``` contains a ```main.py``` file.
+This folder ```Producer/src``` contains a ```producer_manager.py``` file.
 Execute this file inorder to start producing events to Kafka
 
 ### Consumer
@@ -119,10 +119,4 @@ uvicorn main:app --reload
 ### Overall Architecture
 ![](architecture.png)
 
-### Additional steps
-
-Additional steps fo further improvements.
-1. Remove the consumer class from the ```Backend``` folder.    
-In order for that to happen converting the ```RedisManager``` class and its sole dependencies to a library.
-2. 
 
