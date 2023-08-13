@@ -42,10 +42,10 @@ Example 2| 2          | productB     | 210
 Example 3 | 3          | productA     | 190   
 
 ### Users Table
-Columns | product_id | user_name  | main
---- |------------|------------ |------------
-Example 1| 1          | Roy Arditi   | arditiroy@gmail.com
-Example 2| 2          | David Shusterman | david@alfabet.gg 
-Example 3 | 3          | Noa Ran |  noa@8200ac.com
+Columns | product_id | user_name  | email
+--- |------------|------------|------------
+Example 1| 1          | Roy Arditi | arditiroy@gmail.com
+Example 2| 2          | David S    | 
+Example 3 | 3          | Noa R    |  
 
 
