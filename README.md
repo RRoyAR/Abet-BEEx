@@ -116,5 +116,13 @@ Please go to the root folder and execute the following command localy:
 uvicorn main:app --reload
 ```
 
+### Overall Architecture
+![](architecture.png)
+
 ### Additional steps
+
+Additional steps fo further improvements.
+1. Remove the consumer class from the ```Backend``` folder.    
+In order for that to happen converting the ```RedisManager``` class and its sole dependencies to a library.
+2. 
 
