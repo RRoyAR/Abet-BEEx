@@ -1,0 +1,5 @@
+dotenv
+python-kafka
+sqlalchemy
+psycopg2
+redis
