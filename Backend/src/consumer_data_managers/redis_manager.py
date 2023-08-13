@@ -3,7 +3,7 @@ import json
 from time import time
 from redis import Redis
 
-from settings import settings
+from Backend.src.settings import settings
 from Backend.src.utils.singletone_meta import SingletonMeta
 
 

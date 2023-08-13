@@ -1,9 +1,9 @@
 import json
 from kafka import KafkaConsumer
 
-from Backend.src.redis_manager import redis_manager, generate_key
+from Backend.src.consumer_data_managers.redis_manager import redis_manager, generate_key
 from Backend.src.utils.singletone_meta import SingletonMeta
-from settings import settings
+from Backend.src.settings import settings
 
 
 class ConsumerManager(metaclass=SingletonMeta):

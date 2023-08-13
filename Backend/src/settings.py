@@ -12,10 +12,10 @@ class Settings(BaseSettings):
     redis_port: str = Field(..., env="REDIS_PORT")
     redis_password: str = Field(..., env="REDIS_PORT")
     group_id: str = Field(..., env="GROUP_ID")
-
+    postgres_connection_string: str =Field(..., env="POSTGRES_URL")
 
     class Config:
-        env_file = ".env"
+        env_file = "../.env"
 
 
 settings = Settings()

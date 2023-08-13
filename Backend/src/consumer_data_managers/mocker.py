@@ -1,5 +1,5 @@
 import random
-from Backend.src.redis_manager import redis_manager, generate_key
+from Backend.src.consumer_data_managers.redis_manager import redis_manager, generate_key
 
 # Since we do not possess Kafka lets write a function that should fill our Redis with info
 # as if it came from Kafka
