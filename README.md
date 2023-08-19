@@ -1,5 +1,5 @@
-# AlfabetBEExercise
-AlfaBet Backend Exercise
+# ABEExercise
+ABet Backend Exercise
 
 
 ## Kafka Server
